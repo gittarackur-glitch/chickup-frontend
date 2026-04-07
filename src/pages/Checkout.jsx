@@ -19,8 +19,8 @@ export default function Checkout() {
         try {
             console.log("Sending order:", order);
 
-            // ✅ Hardcoded backend URL
-            const res = await fetch("http://127.0.0.1:5000/api/order", {
+            // Replace localhost with your Render backend
+            const res = await fetch("https://chickup-backend.onrender.com/api/order", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(order),

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useCart } from '../context/CartContext';
-import { categories, featuredItems } from '../data/menuData';
+import { featuredItems } from '../data/menuData';
 
 export default function Home() {
     const { addItem } = useCart();

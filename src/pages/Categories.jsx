@@ -13,13 +13,12 @@ export default function Categories() {
 
             <section className="categories">
                 <div className="container">
-                    <h2 className="text-center highlight" style={{ color: 'white', textShadow: '2px 2px 5px rgba(0,0,0,0.8)' }}>
+                    <h2 className="text-center highlight">
                         Explore Our Wing Flavors
                     </h2>
                     {categories.map(cat => (
                         <Link key={cat.id} to={cat.path} className="card-link">
                             <article className="box-3 float-container">
-                                {/* You can add an image property to categories if you want thumbnails */}
                                 <h3 className="float-text text-white">{cat.label}</h3>
                             </article>
                         </Link>
@@ -34,7 +33,7 @@ export default function Categories() {
                     {featuredItems.map(item => (
                         <article className="food-menu-box" key={item.id}>
                             <div className="food-menu-img">
-                                <img src={item.img} alt={item.name} className="img-responsive img-curve" />
+                                <img src={item.img} alt={item.name} className="img-responsive" />
                             </div>
                             <div className="food-menu-desc">
                                 <h4>{item.name}</h4>

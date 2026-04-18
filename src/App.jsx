@@ -8,7 +8,7 @@ import CategoryPage from "./pages/CategoryPage";
 import Checkout from "./pages/Checkout";
 import SearchResults from "./pages/SearchResults";
 import Orders from "./pages/Orders"; // admin view
-import bgImage from "./assets/images/bg.jpg";
+
 
 export default function App() {
   return (
@@ -16,12 +16,8 @@ export default function App() {
       <BrowserRouter>
         <div
           style={{
-            backgroundImage: `url(${bgImage})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
             minHeight: "100vh",
-            backgroundColor: "#111",
+            background: "linear-gradient(180deg, #1a1a1a 0%, #1f1a14 50%, #1a1a1a 100%)",
           }}
         >
           <Routes>

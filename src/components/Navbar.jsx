@@ -50,7 +50,10 @@ export default function Navbar({ activePage }) {
                         {currentUser ? (
                             <>
                                 <li><Link to="/admin/orders" className={activePage === 'events' ? 'active' : ''}>Admin Orders</Link></li>
-                                <li><a href="#" onClick={handleLogout}>Logout</a></li>
+                                <li>
+                                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                    <a href="#" onClick={handleLogout}>Logout</a>
+                                </li>
                             </>
                         ) : (
                             <li><Link to="/login" className={activePage === 'login' ? 'active' : ''}>Login</Link></li>

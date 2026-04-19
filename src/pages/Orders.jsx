@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 // A sub-component to handle individual order feedback state cleanly
-function OrderCard({ order, onSendFeedback }) {
+function OrderCard({ order, onSendFeedback, onDeliver }) {
     const [showReply, setShowReply] = useState(false);
     const [message, setMessage] = useState("");
     const [sending, setSending] = useState(false);
@@ -33,7 +33,7 @@ function OrderCard({ order, onSendFeedback }) {
                 <p><b>Status:</b> {order.status}</p>
                 <p><b>Time:</b> {new Date(order.timestamp).toLocaleString()}</p>
 
-                <div style={{ marginTop: "1rem" }}>
+                <div style={{ marginTop: "1rem", display: "flex", gap: "1rem", alignItems: "center" }}>
                     <button 
                         className="btn-order" 
                         onClick={() => setShowReply(!showReply)}
@@ -41,8 +41,17 @@ function OrderCard({ order, onSendFeedback }) {
                     >
                         {showReply ? "Cancel Reply" : "Reply to Customer"}
                     </button>
-                    
-                    {showReply && (
+
+                    <button 
+                        className="btn-order" 
+                        onClick={() => onDeliver(order.id, order.email)}
+                        style={{ padding: "0.5rem 1rem", fontSize: "0.9rem", backgroundColor: "#28a745" }}
+                    >
+                        Mark as Delivered
+                    </button>
+                </div>
+                
+                {showReply && (
                         <div style={{ marginTop: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                             <textarea 
                                 rows="3" 
@@ -61,7 +70,6 @@ function OrderCard({ order, onSendFeedback }) {
                             </button>
                         </div>
                     )}
-                </div>
             </div>
         </div>
     );
@@ -113,6 +121,27 @@ export default function Orders() {
         }
     };
 
+    const handleDeliverOrder = async (orderId, email) => {
+        if (!window.confirm("Are you sure you want to mark this order as delivered?")) return;
+
+        try {
+            const apiUrl = process.env.NODE_ENV === "development" ? (process.env.REACT_APP_API_URL || "http://127.0.0.1:5000") : "https://chickup-backend.onrender.com";
+            const res = await fetch(`${apiUrl}/api/deliver/${orderId}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email })
+            });
+
+            if (!res.ok) throw new Error("Failed to deliver order");
+
+            setOrders(prev => prev.filter(o => o.id !== orderId));
+            alert("Order marked as delivered and email sent!");
+        } catch (err) {
+            console.error(err);
+            alert("Error marking as delivered.");
+        }
+    };
+
     if (!isAdmin) {
         return <Navigate to="/" replace />;
     }
@@ -132,6 +161,7 @@ export default function Orders() {
                                     key={order.id} 
                                     order={order} 
                                     onSendFeedback={handleSendFeedback} 
+                                    onDeliver={handleDeliverOrder}
                                 />
                             ))}
                         </div>

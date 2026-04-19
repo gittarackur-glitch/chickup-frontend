@@ -19,6 +19,7 @@ export default function Categories() {
                     {categories.map(cat => (
                         <Link key={cat.id} to={cat.path} className="card-link">
                             <article className="box-3 float-container">
+                                <img src={cat.img} alt={cat.label} className="img-responsive img-curve" />
                                 <h3 className="float-text text-white">{cat.label}</h3>
                             </article>
                         </Link>

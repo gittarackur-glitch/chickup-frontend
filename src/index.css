@@ -284,7 +284,7 @@ h3 {
   color: var(--text-primary) !important;
   text-shadow: none !important;
   position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .highlight::after {
@@ -319,6 +319,7 @@ h3 {
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   position: relative;
+  aspect-ratio: 4 / 3;
 }
 
 .box-3::after {
@@ -337,6 +338,12 @@ h3 {
 }
 
 .box-3 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -346,6 +353,16 @@ h3 {
 
 .card-link {
   text-decoration: none;
+  display: block;
+  float: left;
+  width: 30%;
+  margin: 1.5% 1.5%;
+}
+
+.card-link .box-3 {
+  width: 100%;
+  margin: 0;
+  float: none;
 }
 
 .category-text {
@@ -354,7 +371,7 @@ h3 {
 
 .float-text {
   position: absolute;
-  bottom: 18px;
+  bottom: 24px;
   left: 0;
   right: 0;
   text-align: center;

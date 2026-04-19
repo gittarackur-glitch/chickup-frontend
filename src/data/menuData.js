@@ -1,10 +1,10 @@
 export const categories = [
-    { id: 'spicy', label: 'Spicy & Hot', path: '/category/spicy' },
-    { id: 'classic', label: 'Classic', path: '/category/classic' },
-    { id: 'sweet', label: 'Sweet & Savory', path: '/category/sweet' },
-    { id: 'world', label: 'Around the World', path: '/category/world' },
-    { id: 'creamy', label: 'Creamy & Rich', path: '/category/creamy' },
-    { id: 'dryrub', label: 'Dry Rub', path: '/category/dryrub' },
+    { id: 'spicy', label: 'Spicy & Hot', path: '/category/spicy', img: '/images/SPANDHOT/Gochujang-Chicken-2.jpg' },
+    { id: 'classic', label: 'Classic', path: '/category/classic', img: '/images/CLC/garlic-herb-chicken-wings-2-of-5.jpg' },
+    { id: 'sweet', label: 'Sweet & Savory', path: '/category/sweet', img: '/images/SWANDSAV/Honey-Mustard-Chicken-8.jpg' },
+    { id: 'world', label: 'Around the World', path: '/category/world', img: '/images/ATW/Chicken-Shawarma-750x750.jpg' },
+    { id: 'creamy', label: 'Creamy & Rich', path: '/category/creamy', img: '/images/CRMY/1d593bfaf1f50d9ea7d9d4cb863a949e.jpg' },
+    { id: 'dryrub', label: 'Dry Rub', path: '/category/dryrub', img: '/images/DRY/OIP.webp' },
 ];
 
 export const menuItems = {

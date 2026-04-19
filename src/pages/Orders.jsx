@@ -77,7 +77,7 @@ export default function Orders() {
     useEffect(() => {
         if (!isAdmin) return;
         
-        const apiUrl = process.env.REACT_APP_API_URL || "https://chickup-backend.onrender.com";
+        const apiUrl = process.env.NODE_ENV === "development" ? (process.env.REACT_APP_API_URL || "http://127.0.0.1:5000") : "https://chickup-backend.onrender.com";
         fetch(`${apiUrl}/api/orders`)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -91,7 +91,7 @@ export default function Orders() {
         }
 
         try {
-            const apiUrl = process.env.REACT_APP_API_URL || "https://chickup-backend.onrender.com";
+            const apiUrl = process.env.NODE_ENV === "development" ? (process.env.REACT_APP_API_URL || "http://127.0.0.1:5000") : "https://chickup-backend.onrender.com";
             const res = await fetch(`${apiUrl}/api/feedback`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

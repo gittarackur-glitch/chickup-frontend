@@ -23,7 +23,7 @@ export default function Checkout() {
         try {
             console.log("Sending order:", order);
 
-            const apiUrl = process.env.REACT_APP_API_URL || "https://chickup-backend.onrender.com";
+            const apiUrl = process.env.NODE_ENV === "development" ? (process.env.REACT_APP_API_URL || "http://127.0.0.1:5000") : "https://chickup-backend.onrender.com";
             const res = await fetch(`${apiUrl}/api/order`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

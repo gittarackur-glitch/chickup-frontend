@@ -1,15 +1,19 @@
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
 import Navbar from "../components/Navbar";  // ✅ Import Navbar
+import Footer from "../components/Footer";
+import { useAuth } from "../context/AuthContext";
 
 export default function Checkout() {
     const { items, total, clearCart } = useCart();
+    const { currentUser } = useAuth();
     const [message, setMessage] = useState(null);
 
     async function handleOrder(e) {
         e.preventDefault();
         const order = {
             name: e.target.name.value,
+            email: e.target.email.value,
             phone: e.target.phone.value,
             address: e.target.address.value,
             items: items.map(i => `${i.name} x${i.qty}`).join(", "),
@@ -19,8 +23,8 @@ export default function Checkout() {
         try {
             console.log("Sending order:", order);
 
-            // Replace localhost with your Render backend
-            const res = await fetch("https://chickup-backend.onrender.com/api/order", {
+            const apiUrl = process.env.REACT_APP_API_URL || "https://chickup-backend.onrender.com";
+            const res = await fetch(`${apiUrl}/api/order`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(order),
@@ -71,6 +75,11 @@ export default function Checkout() {
                             </div>
 
                             <div className="form-group">
+                                <label htmlFor="email">Email</label>
+                                <input id="email" name="email" type="email" placeholder="Your Email" defaultValue={currentUser?.email || ''} required />
+                            </div>
+
+                            <div className="form-group">
                                 <label htmlFor="phone">Phone</label>
                                 <input id="phone" name="phone" placeholder="Phone Number" required />
                             </div>
@@ -109,6 +118,7 @@ export default function Checkout() {
                     </div>
                 </div>
             </section>
+            <Footer />
         </>
     );
 }

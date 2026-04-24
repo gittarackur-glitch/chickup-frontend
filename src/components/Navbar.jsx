@@ -45,6 +45,7 @@ export default function Navbar({ activePage }) {
                 <nav className="menu">
                     <ul>
                         <li><Link to="/" className={activePage === 'home' ? 'active' : ''}>Home</Link></li>
+                        <li><Link to="/about" className={activePage === 'about' ? 'active' : ''}>About</Link></li>
                         <li><Link to="/categories" className={activePage === 'categories' ? 'active' : ''}>Categories</Link></li>
                         <li><Link to="/checkout" className={activePage === 'checkout' ? 'active' : ''}>Order</Link></li>
                         {currentUser ? (

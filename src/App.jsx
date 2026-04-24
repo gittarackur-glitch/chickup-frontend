@@ -11,6 +11,7 @@ import SearchResults from "./pages/SearchResults";
 import Orders from "./pages/Orders"; // admin view
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import About from "./pages/About";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 
@@ -27,6 +28,7 @@ export default function App() {
           >
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/category/:id" element={<CategoryPage />} />
               <Route path="/checkout" element={<Checkout />} />

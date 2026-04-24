@@ -13,7 +13,7 @@ export default function Footer() {
                         <li>
                             <a href="https://www.instagram.com/__lem.java?igsh=ZnZ3eDU0Zms3OTh5" target="_blank" rel="noreferrer">
                                 <img src="https://img.icons8.com/fluent/48/instagram-new.png" alt="Instagram" />
-                                <span>lem.py</span>
+                                <span>lem.java</span>
                             </a>
                         </li>
                     </ul>

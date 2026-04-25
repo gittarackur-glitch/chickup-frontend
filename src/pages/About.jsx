@@ -194,8 +194,7 @@ export default function About() {
                             <h3>Vincent Manalo</h3>
                             <span className="about-team-role">Founder &amp; Head Chef</span>
                             <p>
-                                The mastermind behind every signature flavor. Vincent's
-                                passion for wings started at age 7 — and never stopped.
+                                The pride of Manalo Family.
                             </p>
                         </div>
 
@@ -206,7 +205,7 @@ export default function About() {
                             <h3>John Lemset Burgos</h3>
                             <span className="about-team-role">Co-Founder &amp; Marketing Manager</span>
                             <p>
-                                The dedicated son of Taciana Burgos. Designed and developed the website.
+                                The dedicated son of Taciana and Rommel Burgos.
                             </p>
                         </div>
                     </div>
